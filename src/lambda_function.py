@@ -64,7 +64,8 @@ def handle_event_record(event_record: S3EventRecord, context: LambdaContext) -> 
         metadata=create_dataset_args.metadata,
         description=create_dataset_args.description,
         device_id=create_dataset_args.device_id,
-        create_device_if_missing=True
+        create_device_if_missing=True,
+        caller_org_id=ROBOTO_ORG_ID,
     )
     logger.info(f"Got dataset {ds.dataset_id}, importing file to it")
 
